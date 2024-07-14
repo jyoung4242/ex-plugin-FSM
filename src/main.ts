@@ -1,10 +1,10 @@
 import "./style.css";
 import { UI } from "@peasy-lib/peasy-ui";
 import { Engine, DisplayMode } from "excalibur";
-import { ExFSM, ExState } from "./ExFSM";
+import { ExFSM } from "./ExFSM";
 import { model, template } from "./UI";
-import { myIdleState, MyIdleState } from "./IdleState";
-import { myActiveState, MyActiveState } from "./ActiveState";
+import { myIdleState } from "./IdleState";
+import { myActiveState } from "./ActiveState";
 import { myAsyncWait1 } from "./asyncWaitone";
 import { myAsyncWait2 } from "./asyncWaittwo";
 
@@ -23,10 +23,13 @@ function firstStates() {
   console.log("First State testing --> General Purpose States");
   console.log("******************************************");
 
+  // create state machine
   const myStates = new ExFSM();
+  // register states
   myStates.register("idle", "walk", "jump", "run");
   console.log(myStates);
 
+  // set states
   myStates.set("idle");
   setTimeout(() => {
     myStates.set("walk");
@@ -52,9 +55,13 @@ function secondStates() {
   console.log("Second State testing  --> Class based States");
   console.log("******************************************");
 
+  // create state machine
   const myOtherStates = new ExFSM();
 
+  // register states
   myOtherStates.register(myIdleState, myActiveState);
+
+  // set states
   myOtherStates.set("idle");
 
   setTimeout(() => {
@@ -68,8 +75,11 @@ function thirdStates() {
   console.log("Third State testing  --> Async Class based States");
   console.log("******************************************");
 
+  // create state machine
   const myThirdStates = new ExFSM();
+  // register states
   myThirdStates.register(myAsyncWait1, myAsyncWait2);
+  // set states
   myThirdStates.set("wait1");
 
   setTimeout(() => {
@@ -77,4 +87,5 @@ function thirdStates() {
   }, 3000);
 }
 
+// start the testing
 firstStates();
