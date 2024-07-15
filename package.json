@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest --coverage",
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview"
@@ -16,11 +16,14 @@
     "@peasy-lib/peasy-assets": "^0.2.6",
     "@peasy-lib/peasy-input": "^0.2.0",
     "@peasy-lib/peasy-ui": "^0.9.58",
-    "excalibur": "^0.29.3"
+    "excalibur": "^0.29.3",
+    "jsdom": "^24.1.0"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^2.0.2",
     "json": "^11.0.0",
     "typescript": "^5.5.3",
-    "vite": "^5.3.3"
+    "vite": "^5.3.3",
+    "vitest": "^2.0.2"
   }
 }

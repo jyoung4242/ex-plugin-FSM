@@ -38,7 +38,6 @@ export class ExFSM {
         throw new Error(`State ${state} not found`);
       }
 
-      console.log("newstate", newstate);
       next = newstate;
     } else {
       const newstate = this.states.get(state.name);
@@ -104,7 +103,7 @@ export class ExFSM {
 
   update() {
     if (!this.current) {
-      throw new Error("No state set");
+      return;
     }
     if (this.current) {
       this.current.update(...this.currentParams);

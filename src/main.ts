@@ -80,10 +80,10 @@ function thirdStates() {
   // register states
   myThirdStates.register(myAsyncWait1, myAsyncWait2);
   // set states
-  myThirdStates.set("wait1");
+  myThirdStates.set(myAsyncWait1);
 
   setTimeout(() => {
-    myThirdStates.set("wait2");
+    myThirdStates.set(myAsyncWait2);
   }, 3000);
 }
 
