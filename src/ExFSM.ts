@@ -85,6 +85,13 @@ export class ExFSM {
     this.currentTime = Date.now();
   }
 
+  has(state: string | ExState): boolean {
+    if (typeof state === "string") {
+      return this.states.has(state);
+    }
+    return this.states.has(state.name);
+  }
+
   get(): ExState {
     if (!this.current) {
       throw new Error("No state set");
