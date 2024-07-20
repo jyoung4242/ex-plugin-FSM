@@ -44,12 +44,9 @@ export class ExFSM {
       if (!newstate) {
         throw new Error(`State ${state} not found`);
       }
-      console.log("newstate", newstate);
 
       next = newstate;
     }
-
-    console.log("next", next);
 
     if (this.current) {
       leaving = this.current.exit(next, ...params);
